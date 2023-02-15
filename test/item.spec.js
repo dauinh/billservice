@@ -1,10 +1,7 @@
 const http = require('http');
-const express = require('express');
 const request = require('supertest');
 
 const app = require('../index');
-const hostname = '127.0.0.1';
-const port = 3000;
 
 describe('Testing on /items endpoints', () => {
   var server;

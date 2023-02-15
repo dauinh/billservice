@@ -1,4 +1,5 @@
-const bills = require('../db/test.json')
+const bills = require('../db/test.json');
+const fs = require('fs');
 
 const readAll = (req, res) => {
   try {
@@ -7,14 +8,14 @@ const readAll = (req, res) => {
     console.log(error);
     return res.redirect('/error');
   }
-}
+};
 
 const create = (req, res) => {
   const body = req.body;
   const fields = [body.name, body.address, body.hospital, body.date, body.amount];
   const fieldHeader = ['name', 'address', 'hospital', 'date', 'amount'];
   for (let i = 0; i < fields.length; i++) {
-    if (!fields[i] || fields[i] == undefined) {
+    if (!fields[i]) {
       console.log(`Missing fields: ${fieldHeader[i]}`);
       return res.status(400).json(`Missing fields: ${fieldHeader[i]}`);
     }
@@ -32,7 +33,7 @@ const create = (req, res) => {
     console.log(error);
     return res.redirect('/error');
   }
-}
+};
 
 module.exports = {
   readAll, create

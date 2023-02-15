@@ -1,10 +1,12 @@
 const http = require('http');
 const express = require('express');
+const config = require('./config');
 
 const itemRouter = require('./routes/item');
 
-const hostname = '127.0.0.1';
-const port = 3000;
+// Configuration
+const hostname = config.HOST || '127.0.0.1';
+const port = config.PORT || 3000;
 
 // Set up the express app
 const app = express();

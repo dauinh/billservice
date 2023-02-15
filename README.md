@@ -1,45 +1,56 @@
 # billservice
 a simple medical bill upload service
 
-### Goal
-Your assignment is to implement a simple medical bill upload service using Node and Express.
+## Goal
+Implement a simple medical bill upload service using Node and Express.
 
-### Assessment Tasks
+## Installation Guide
 
-Implement assignment using:
-- Language: Node
-- Framework: Express
-- Two endpoints are required
+This project requires the following tools:
 
-    GET /items: returns a list of medical bills
-    POST /items: creates a new medical bill
+- [Node.js](https://nodejs.org/en/): an open-source, cross-platform, back-end JavaScript runtime environment
+- [NPM](https://www.npmjs.com/): a package manager for Node.js
 
-A medical bill has the following properties:
+**Step 1: Clone repository**
 
- - patient name and address
+In your terminal, run following commands to clone the repository.
 
- - the hospital name
+```
+$ git clone https://github.com/dauinh/billservice.git
+$ cd billservice
+```
 
- - date of service
+**Step 2: Install dependencies**
 
- - bill amount.
+In project root directory, install dependencies by using following command.
 
-Both endpoints should accept and return JSON.
+```
+$ npm install
+```
 
-You do not need to persist the bills to a database. Keep them in memory.
+**Step 3 (OPTIONAL): Create environment variables**
 
-Provide API tests for both endpoints.
+You can create a `.env` file in root directory with the following variables to config your own port and host. The default port is `3000` and default host is `127.0.0.1`.
 
-Provide instructions on how to run your assignment in a README.
+```
+# .env
+PORT=choose_your_favorite_port
+HOST=choose_your_favorite_host
+```
 
-### Success Criteria
 
-- Node best practices
-- API implemented featuring the endpoints above
-- Completeness: did you complete the features? Are all the tests running?
-- Correctness: does the functionality act in sensible, thought-out ways?
-- Maintainability: is it written in a clean, maintainable way?
+**Step 4: Test and run server**
 
-### Submission
+Before starting the app, run tests to check if everything is running properly.
 
-Please submit the application source code (upload to a public GitHub repo and share the link), along with a demo of the application running. You can use Postman to send requests to the server and screen record (upload or link to video).
+```
+$ npm start
+```
+
+Finallyl, run these commands in the project directory.
+
+```
+$ npm start
+```
+
+Open the app in your browser with the appropiate `PORT` and `HOST`, or by default at http://127.0.0.1:3000/.
