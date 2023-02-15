@@ -44,7 +44,7 @@ HOST=choose_your_favorite_host
 Before starting the app, run tests to check if everything is running properly.
 
 ```
-$ npm start
+$ npm test
 ```
 
 Finallyl, run these commands in the project directory.
