@@ -1,22 +1,59 @@
 const http = require('http');
 const express = require('express');
+const request = require('supertest');
 
-describe('Test /items', () => {
-  before( () => { 
-    const app = express();
-    const server = http.createServer(app);
-    
-    server.listen(3000, (error) => {
+const app = require('../index');
+const hostname = '127.0.0.1';
+const port = 3000;
+
+describe('Testing on /items endpoints', () => {
+  var server;
+  // Called once before any of the tests in this block begin.
+  before( (done) => { 
+    server = http.createServer(app);
+
+    server.listen( (error) => {
       if (error) { return done(error); }
+      done();
     });
   });
-  after( () => {
-    console.log('All tests done!');
+  // GET /items
+  it('GET /items should return with a JSON object and 200 status', (done) => {
+    request(app)
+      .get('/items')
+      .set('Content-Type', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end(done);
   });
-  // describe('Health check on /sync', () => {
-  //   it('health should be okay', () => {
-  //     const actualResult = healthCheckSync();
-  //     expect(actualResult).to.equal('OK');
-  //   });
-  // });
+  // POST /items 
+  it('POST /items should return with a JSON object and 201 status', (done) => {
+    request(app)
+      .post('/items')
+      .send({
+        name: "some name",
+        address: "some address",
+        hospital: "some hospital",
+        date: "some date",
+        amount: "some amount"
+      })
+      .expect('Content-Type', /json/)
+      .expect(201)
+      .end(done);
+  });
+  it('POST /items should return with 400 status', (done) => {
+    request(app)
+      .post('/items')
+      .send({})
+      .expect('Content-Type', /json/)
+      .expect(400)
+      .end(done);
+  });
+
+  // Called after all tests are run
+  after( (done) => {
+    console.log('All tests done!');
+    server.close();
+    done();
+  });
 });

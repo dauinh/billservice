@@ -32,8 +32,6 @@ Provide API tests for both endpoints.
 
 Provide instructions on how to run your assignment in a README.
 
-
-
 ### Success Criteria
 
 - Node best practices
