@@ -1,6 +1,6 @@
 const bills = require('../db/test.json');
-const fs = require('fs');
 
+// GET /items: return all medical bills
 const readAll = (req, res) => {
   try {
     return res.status(200).json(bills);
@@ -10,6 +10,7 @@ const readAll = (req, res) => {
   }
 };
 
+// POST /items: create a new medical bill
 const create = (req, res) => {
   const body = req.body;
   const fields = [body.name, body.address, body.hospital, body.date, body.amount];
